@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Surprise Game</title>
+    <style>
+        body {
+            text-align: center;
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Guess the Next Background Color!</h1>
+
+<button onclick="changeColor()">Change Color</button>
+
+<p id="colorName"></p>
+
+<script>
+function changeColor() {
+    let colors = [
+        "red","blue","green","yellow","orange","purple",
+        "pink","cyan","brown","gray","gold","lime"
+    ];
+
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    document.body.style.backgroundColor = randomColor;
+
+    document.getElementById("colorName").innerHTML =
+        "Current Color: " + randomColor;
+}
+</script>
+
+</body>
+</html>

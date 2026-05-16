@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Exam</title>
+</head>
+<body>
+
+<h1>Simple Online Exam</h1>
+
+<form id="examForm">
+
+<p>1. What does HTML stand for?</p>
+<input type="radio" name="q1" value="a"> Hyper Text Markup Language<br>
+<input type="radio" name="q1" value="b"> High Tool Machine Language<br><br>
+
+<p>2. Which language is used for styling web pages?</p>
+<input type="radio" name="q2" value="a"> HTML<br>
+<input type="radio" name="q2" value="b"> CSS<br><br>
+
+<p>3. Which language is used for web page interactivity?</p>
+<input type="radio" name="q3" value="a"> JavaScript<br>
+<input type="radio" name="q3" value="b"> SQL<br><br>
+
+<button type="button" onclick="submitExam()">Submit Exam</button>
+
+</form>
+
+<h2 id="result"></h2>
+
+<script>
+function submitExam() {
+    let score = 0;
+
+    let q1 = document.querySelector('input[name="q1"]:checked');
+    let q2 = document.querySelector('input[name="q2"]:checked');
+    let q3 = document.querySelector('input[name="q3"]:checked');
+
+    if(q1 && q1.value === "a") score++;
+    if(q2 && q2.value === "b") score++;
+    if(q3 && q3.value === "a") score++;
+
+    document.getElementById("result").innerHTML =
+        "Your Score: " + score + "/3";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String and Math Functions</title>
+</head>
+<body>
+    <h1>JavaScript String and Math Functions</h1>
+
+    <div id="output"></div>
+
+    <script>
+        let str = "JavaScript is awesome";
+        let output = "";
+
+        output += "<h2>String Functions</h2>";
+        output += "Length: " + str.length + "<br>";
+        output += "Uppercase: " + str.toUpperCase() + "<br>";
+        output += "Lowercase: " + str.toLowerCase() + "<br>";
+        output += "Substring: " + str.substring(4, 10) + "<br>";
+        output += "Replace: " + str.replace("awesome", "fantastic") + "<br>";
+        output += "Concatenate: " + str.concat(" and fun!") + "<br>";
+        output += "First index of 'a': " + str.indexOf("a") + "<br>";
+        output += "Last index of 's': " + str.lastIndexOf("s") + "<br>";
+
+        output += "<h2>Math Functions</h2>";
+        let radius = 5;
+        output += "Area of Circle: " + (Math.PI * radius * radius).toFixed(2) + "<br>";
+        output += "Rounded Value: " + Math.round(3.14159) + "<br>";
+        output += "Absolute Value: " + Math.abs(-10) + "<br>";
+        output += "Square Root: " + Math.sqrt(64) + "<br>";
+        output += "Random Number (0-10): " + (Math.random() * 10).toFixed(2) + "<br>";
+
+        document.getElementById("output").innerHTML = output;
+    </script>
+</body>
+</html>

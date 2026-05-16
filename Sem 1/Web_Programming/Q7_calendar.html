@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar Generator</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        td, th {
+            border: 1px solid black;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Calendar</h1>
+
+Enter Year:
+<input type="number" id="year">
+<button onclick="generateCalendar()">Generate Calendar</button>
+
+<div id="calendar"></div>
+
+<script>
+function generateCalendar() {
+    let year = document.getElementById("year").value;
+    let calendarDiv = document.getElementById("calendar");
+    calendarDiv.innerHTML = "";
+
+    const months = [
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
+    ];
+
+    for(let month = 0; month < 12; month++) {
+        let date = new Date(year, month, 1);
+
+        let table = "<h2>" + months[month] + " " + year + "</h2>";
+        table += "<table>";
+        table += "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>";
+
+        for(let i = 0; i < date.getDay(); i++) {
+            table += "<td></td>";
+        }
+
+        while(date.getMonth() === month) {
+            table += "<td>" + date.getDate() + "</td>";
+
+            if(date.getDay() === 6) {
+                table += "</tr><tr>";
+            }
+
+            date.setDate(date.getDate() + 1);
+        }
+
+        table += "</tr></table>";
+        calendarDiv.innerHTML += table;
+    }
+}
+</script>
+
+</body>
+</html>

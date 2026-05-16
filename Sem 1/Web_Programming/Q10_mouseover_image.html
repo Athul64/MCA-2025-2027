@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Over Product View</title>
+    <style>
+        img {
+            width: 300px;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Laptop Product Page</h1>
+
+<p>Hover over the image to see a close-up view.</p>
+
+<img id="productImage"
+src="https://via.placeholder.com/300x200?text=Laptop"
+onmouseover="showCloseUp()"
+onmouseout="showOriginal()">
+
+<p id="productText">Normal Product View</p>
+
+<script>
+function showCloseUp() {
+    document.getElementById("productImage").src =
+    "https://via.placeholder.com/500x300?text=Close+Up+View";
+
+    document.getElementById("productText").innerHTML =
+    "Close-up view of the laptop displayed!";
+}
+
+function showOriginal() {
+    document.getElementById("productImage").src =
+    "https://via.placeholder.com/300x200?text=Laptop";
+
+    document.getElementById("productText").innerHTML =
+    "Normal Product View";
+}
+</script>
+
+</body>
+</html>

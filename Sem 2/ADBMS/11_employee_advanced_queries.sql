@@ -1,0 +1,54 @@
+CREATE TABLE EMPLOYEE(
+    Emp_no VARCHAR2(10),
+    E_name VARCHAR2(30),
+    E_address VARCHAR2(50),
+    E_ph_no VARCHAR2(15),
+    Email_id VARCHAR2(40),
+    Dept_no VARCHAR2(10),
+    Dept_name VARCHAR2(30),
+    Job_id VARCHAR2(10),
+    Designation VARCHAR2(30),
+    Salary NUMBER,
+    Date_of_join DATE
+);
+
+SELECT Emp_no,E_name,Salary
+FROM EMPLOYEE
+WHERE Designation='MANAGER';
+
+SELECT * FROM EMPLOYEE
+WHERE Salary > ANY(
+    SELECT Salary FROM EMPLOYEE
+    WHERE Designation='HR PROFESSIONAL'
+);
+
+SELECT * FROM EMPLOYEE
+WHERE Date_of_join > TO_DATE('01-01-2014','DD-MM-YYYY')
+ORDER BY Designation;
+
+SELECT E_name, MONTHS_BETWEEN(SYSDATE,Date_of_join)/12 AS Experience, Salary
+FROM EMPLOYEE;
+
+SELECT * FROM EMPLOYEE
+WHERE Designation IN ('ASSISTANT','ANALYST');
+
+SELECT * FROM EMPLOYEE
+WHERE Date_of_join IN (
+TO_DATE('01-05-2020','DD-MM-YYYY'),
+TO_DATE('03-12-1999','DD-MM-YYYY'),
+TO_DATE('17-12-2000','DD-MM-YYYY'),
+TO_DATE('19-01-1980','DD-MM-YYYY'));
+
+SELECT * FROM EMPLOYEE
+WHERE Dept_no IN ('D54','D80');
+
+SELECT E_name FROM EMPLOYEE
+WHERE E_name LIKE 'A%';
+
+SELECT E_name, SUBSTR(E_name,1,5)
+FROM EMPLOYEE
+WHERE E_name LIKE 'S%';
+
+SELECT * FROM EMPLOYEE
+WHERE Designation NOT IN ('PRESIDENT','MANAGER')
+ORDER BY Salary;
